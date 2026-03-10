@@ -23,6 +23,7 @@ dependencies {
     implementation(libs.moshi)
     ksp(libs.moshi.codegen)
     implementation(libs.coroutines.core)
+    implementation("javax.inject:javax.inject:1")
 
     testImplementation(libs.junit)
     testImplementation(libs.coroutines.test)

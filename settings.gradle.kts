@@ -1,3 +1,11 @@
+import java.util.Properties
+
+val localProps = Properties()
+val localPropsFile = file("local.properties")
+if (localPropsFile.exists()) {
+    localProps.load(localPropsFile.inputStream())
+}
+
 pluginManagement {
     repositories {
         google()
@@ -18,9 +26,9 @@ dependencyResolutionManagement {
             url = uri("https://maven.pkg.github.com/facebook/meta-wearables-dat-android")
             credentials {
                 username = ""
-                password = providers.gradleProperty("dat.github.token")
-                    .orElse(providers.environmentVariable("GITHUB_TOKEN"))
-                    .get()
+                password = localProps.getProperty("dat.github.token")
+                    ?: System.getenv("GITHUB_TOKEN")
+                    ?: ""
             }
         }
     }
