@@ -179,6 +179,18 @@ Issues and pull requests welcome. If you work in disability services, vocational
 
 Apache 2.0
 
-## Related
+## Part of the OHC Platform
 
-- [OHC Demo System](https://github.com/jodonnel/ohc-sap-demo) — Event-driven operations demo platform
+Job Coach is a use case running on the [Operational Hub for the Connected Enterprise (OHC)](https://github.com/jodonnel/ohc-sap-demo) — an event-driven integration platform built on OpenShift.
+
+OHC connects edge devices to enterprise systems using CloudEvents and server-sent events. The same platform that routes rail safety alerts, substation telemetry, and shopfloor quality events also carries voice interactions from a pair of smart glasses. That's the point: one event mesh, many use cases.
+
+```
+Job Coach App ──► CloudEvent ──► OHC /ingest ──► SSE ──► Dashboard
+                                    ▲
+Rail sensors ───► CloudEvent ───────┘
+Substation SCADA ► CloudEvent ──────┘
+Shopfloor MES ──► CloudEvent ───────┘
+```
+
+The stage demo at SAP Insider 2026: Jim wears the glasses, talks through the full stack, and the audience watches the event arrive on screen in real time — alongside every other industry vertical running on the same platform.
